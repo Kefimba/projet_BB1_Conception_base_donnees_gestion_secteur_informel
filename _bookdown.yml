@@ -1,7 +1,7 @@
-﻿book_filename: "Rapport_BD_Secteur_Informel"
+﻿book_filename: "index"
 language:
   ui:
-    chapter_name: ""
+    chapter_name: "Chapitre"
   label:
     fig: "Figure "
     tab: "Tableau "
