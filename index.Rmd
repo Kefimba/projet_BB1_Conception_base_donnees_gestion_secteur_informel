@@ -1303,7 +1303,7 @@ Ces deux scénarios illustrent comment la base de données transforme la gestion
 
 La base de données ne se contente pas de stocker l'information : elle la structure, la sécurise, la croise et la valorise pour éclairer la décision publique au service du développement du secteur informel sénégalais.
 
-# Propositions d extension {#extensions}
+# Propositions d'extension {#extensions}
 
 ## Ameliorations fonctionnelles
 
@@ -1507,14 +1507,6 @@ La démarche suit les étapes classiques de la méthode Merise :
 - Modélisation physique (MPD)
 - Génération des scripts SQL et documentation
 
-# À retenir {.infobox}
-- Utilisez toujours des clés primaires et étrangères explicites.
-- Documentez chaque table et chaque champ.
-- Privilégiez les contraintes d’intégrité pour garantir la qualité des données.
-
-# Bonnes pratiques {.tipbox}
-- Utilisez des index sur les colonnes de jointure pour accélérer les requêtes.
-- Séparez les données de référence des données métier.
 
 # Limites et perspectives {-}
 - Automatisation possible de la génération des scripts SQL à partir du MCD.

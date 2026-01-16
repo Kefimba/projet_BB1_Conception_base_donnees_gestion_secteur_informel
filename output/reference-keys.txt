@@ -26,8 +26,8 @@ mcd
 entites-principales
 decoupage-territorial
 unites-et-activites
-vulnerabilites
-programmes-dappui
+contraintes-et-vulnérabilités
+appuis-publics
 gestion-documentaire
 associations
 mld
@@ -92,5 +92,3 @@ r9-indice-de-vulnerabilite-par-unite
 r10-tableau-croise-activites-x-difficultes
 annexe-mcd
 annexe-sql
-à-retenir
-bonnes-pratiques
