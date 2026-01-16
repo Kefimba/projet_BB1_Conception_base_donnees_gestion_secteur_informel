@@ -181,7 +181,7 @@ h1 { display: none; }
 <div class="cover-kicker">Rédigé par</div>
 <div class="cover-names">
 Paul BALAFAI</br>
-DIALLO Cheick Oumar<br/>
+DIALLO Cheikh Oumar<br/>
 Mamady I BERETE
 </div>
 <div class="cover-note">Élèves ingénieurs statisticiens économistes (ISE 2)</div>
