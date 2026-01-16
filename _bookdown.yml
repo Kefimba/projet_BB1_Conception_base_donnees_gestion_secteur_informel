@@ -1,0 +1,12 @@
+﻿book_filename: "Rapport_BD_Secteur_Informel"
+language:
+  ui:
+    chapter_name: ""
+  label:
+    fig: "Figure "
+    tab: "Tableau "
+    eq: "Equation "
+delete_merged_file: true
+output_dir: "output"
+rmd_files: ["index.Rmd"]
+new_session: false
