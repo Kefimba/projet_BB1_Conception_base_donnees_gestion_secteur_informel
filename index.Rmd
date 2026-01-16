@@ -638,7 +638,7 @@ knitr::include_graphics("images/MLD.png")
 
 # Modele Physique de Donnees {#mpd}
 
-Le MPD est implemente en **MySQL** et respecte les bonnes pratiques de conception. Il traduit le MLD en instructions SQL executables pour creer la structure de la base de donnees.
+Le MPD est implemente en **MySQL**. Il traduit le MLD en instructions SQL executables pour creer la structure de la base de donnees.
 
 ## Conventions de nommage
 
