@@ -1,6 +1,15 @@
-﻿bookdown::word_document2:
-  toc: true
-  toc_depth: 3
-  number_sections: true
+﻿bookdown::gitbook:
+  css: style.css
+  toc_depth: 2
+  split_by: chapter
+  config:
+    toc:
+      collapse: section
+      scroll_highlight: yes  # ← CRUCIAL
+    sharing: no
+    toolbar:
+      position: fixed
+    edit: null
+    download: null
+    search: yes
   fig_caption: true
-  md_extensions: +footnotes
