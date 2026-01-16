@@ -1,0 +1,6 @@
+﻿bookdown::word_document2:
+  toc: true
+  toc_depth: 3
+  number_sections: true
+  fig_caption: true
+  md_extensions: +footnotes

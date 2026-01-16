@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Modele Physique de Donnees | PROJET 3 : Conception d’une base de donnees</title>
+  <meta name="description" content="5 Modele Physique de Donnees | PROJET 3 : Conception d’une base de donnees" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Modele Physique de Donnees | PROJET 3 : Conception d’une base de donnees" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Modele Physique de Donnees | PROJET 3 : Conception d’une base de donnees" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mld.html"/>
+<link rel="next" href="dictionnaire.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="analyse.html"><a href="analyse.html"><i class="fa fa-check"></i><b>1</b> Analyse fonctionnelle</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="analyse.html"><a href="analyse.html#contexte-et-problématique"><i class="fa fa-check"></i><b>1.1</b> Contexte et problématique</a></li>
+<li class="chapter" data-level="1.2" data-path="analyse.html"><a href="analyse.html#objectif-général"><i class="fa fa-check"></i><b>1.2</b> Objectif général</a></li>
+<li class="chapter" data-level="1.3" data-path="analyse.html"><a href="analyse.html#acteurs"><i class="fa fa-check"></i><b>1.3</b> Acteurs du système</a></li>
+<li class="chapter" data-level="1.4" data-path="analyse.html"><a href="analyse.html#processus-métier"><i class="fa fa-check"></i><b>1.4</b> Processus métier</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>2</b> Diagramme de contexte</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="contexte.html"><a href="contexte.html#entrees"><i class="fa fa-check"></i><b>2.1</b> Entrees</a></li>
+<li class="chapter" data-level="2.2" data-path="contexte.html"><a href="contexte.html#sorties"><i class="fa fa-check"></i><b>2.2</b> Sorties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mcd.html"><a href="mcd.html"><i class="fa fa-check"></i><b>3</b> Modele Conceptuel de Donnees</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mcd.html"><a href="mcd.html#entites-principales"><i class="fa fa-check"></i><b>3.1</b> Entites principales</a></li>
+<li class="chapter" data-level="3.2" data-path="mcd.html"><a href="mcd.html#associations"><i class="fa fa-check"></i><b>3.2</b> Associations et cardinalites</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="mld.html"><a href="mld.html"><i class="fa fa-check"></i><b>4</b> Modele Logique de Donnees</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="mld.html"><a href="mld.html#tables-issues-des-entites"><i class="fa fa-check"></i><b>4.1</b> Tables issues des entites</a></li>
+<li class="chapter" data-level="4.2" data-path="mld.html"><a href="mld.html#tables-dassociation"><i class="fa fa-check"></i><b>4.2</b> Tables d’association</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="mpd.html"><a href="mpd.html"><i class="fa fa-check"></i><b>5</b> Modele Physique de Donnees</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="mpd.html"><a href="mpd.html#conventions-de-nommage"><i class="fa fa-check"></i><b>5.1</b> Conventions de nommage</a></li>
+<li class="chapter" data-level="5.2" data-path="mpd.html"><a href="mpd.html#types"><i class="fa fa-check"></i><b>5.2</b> Types de donnees utilises</a></li>
+<li class="chapter" data-level="5.3" data-path="mpd.html"><a href="mpd.html#script-ddl-complet"><i class="fa fa-check"></i><b>5.3</b> Script DDL complet</a></li>
+<li class="chapter" data-level="5.4" data-path="mpd.html"><a href="mpd.html#commentaires-sur-limplementation"><i class="fa fa-check"></i><b>5.4</b> Commentaires sur l’implementation</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dictionnaire.html"><a href="dictionnaire.html"><i class="fa fa-check"></i><b>6</b> Dictionnaire des donnees</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dictionnaire.html"><a href="dictionnaire.html#tables-principales"><i class="fa fa-check"></i><b>6.1</b> Tables principales</a></li>
+<li class="chapter" data-level="6.2" data-path="dictionnaire.html"><a href="dictionnaire.html#tables-dassociation-2"><i class="fa fa-check"></i><b>6.2</b> Tables d’association</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="contraintes.html"><a href="contraintes.html"><i class="fa fa-check"></i><b>7</b> Contraintes d’intégrité</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="contraintes.html"><a href="contraintes.html#contraintes-d-entite"><i class="fa fa-check"></i><b>7.1</b> Contraintes d entite</a></li>
+<li class="chapter" data-level="7.2" data-path="contraintes.html"><a href="contraintes.html#contraintes-dintégrité"><i class="fa fa-check"></i><b>7.2</b> Contraintes d’intégrité</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="usecases.html"><a href="usecases.html"><i class="fa fa-check"></i><b>8</b> Scénarios utilisateurs</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="usecases.html"><a href="usecases.html#uc1-recensement-territorial-dune-unité-informelle"><i class="fa fa-check"></i><b>8.1</b> UC1 : Recensement territorial d’une unité informelle</a></li>
+<li class="chapter" data-level="8.2" data-path="usecases.html"><a href="usecases.html#uc2-analyse-stratégique-pour-une-politique-publique-ciblée"><i class="fa fa-check"></i><b>8.2</b> UC2 : Analyse stratégique pour une politique publique ciblée</a></li>
+<li class="chapter" data-level="8.3" data-path="usecases.html"><a href="usecases.html#synthèse-de-la-valeur-ajoutée"><i class="fa fa-check"></i><b>8.3</b> Synthèse de la valeur ajoutée</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="extensions.html"><a href="extensions.html"><i class="fa fa-check"></i><b>9</b> Propositions d extension</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="extensions.html"><a href="extensions.html#ameliorations-fonctionnelles"><i class="fa fa-check"></i><b>9.1</b> Ameliorations fonctionnelles</a></li>
+<li class="chapter" data-level="9.2" data-path="extensions.html"><a href="extensions.html#ameliorations-techniques"><i class="fa fa-check"></i><b>9.2</b> Ameliorations techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="requetes.html"><a href="requetes.html"><i class="fa fa-check"></i><b>10</b> Requetes SQL</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="requetes.html"><a href="requetes.html#requetes-simples"><i class="fa fa-check"></i><b>10.1</b> Requetes simples</a></li>
+<li class="chapter" data-level="10.2" data-path="requetes.html"><a href="requetes.html#requetes-intermediaires"><i class="fa fa-check"></i><b>10.2</b> Requetes intermediaires</a></li>
+<li class="chapter" data-level="10.3" data-path="requetes.html"><a href="requetes.html#requetes-avancees"><i class="fa fa-check"></i><b>10.3</b> Requetes avancees</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="appendix"><span><b>Annexes</b></span></li>
+<li class="chapter" data-level="A" data-path="annexe-mcd.html"><a href="annexe-mcd.html"><i class="fa fa-check"></i><b>A</b> Schema MCD Merise</a></li>
+<li class="chapter" data-level="B" data-path="annexe-sql.html"><a href="annexe-sql.html"><i class="fa fa-check"></i><b>B</b> Script SQL complet</a></li>
+<li class="chapter" data-level="" data-path="résumé-du-projet.html"><a href="résumé-du-projet.html"><i class="fa fa-check"></i>Résumé du projet</a></li>
+<li class="chapter" data-level="" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i>Méthodologie</a></li>
+<li class="chapter" data-level="C" data-path="à-retenir.html"><a href="à-retenir.html"><i class="fa fa-check"></i><b>C</b> À retenir</a></li>
+<li class="chapter" data-level="D" data-path="bonnes-pratiques.html"><a href="bonnes-pratiques.html"><i class="fa fa-check"></i><b>D</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="" data-path="limites-et-perspectives.html"><a href="limites-et-perspectives.html"><i class="fa fa-check"></i>Limites et perspectives</a></li>
+<li class="chapter" data-level="" data-path="glossaire.html"><a href="glossaire.html"><i class="fa fa-check"></i>Glossaire</a></li>
+<li class="chapter" data-level="" data-path="références.html"><a href="références.html"><i class="fa fa-check"></i>Références</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROJET 3 : Conception d’une base de donnees</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mpd" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Modele Physique de Donnees<a href="mpd.html#mpd" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Le MPD est implemente en <strong>MySQL</strong> et respecte les bonnes pratiques de conception. Il traduit le MLD en instructions SQL executables pour creer la structure de la base de donnees.</p>
+<div id="conventions-de-nommage" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Conventions de nommage<a href="mpd.html#conventions-de-nommage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Noms de tables en minuscules avec underscores (snake_case)</li>
+<li>Cles primaires nommees <code>id_&lt;entite&gt;</code> avec AUTO_INCREMENT</li>
+<li>Cles etrangeres portant le meme nom que la cle primaire referencee</li>
+<li>Contraintes UNIQUE pour garantir l’unicite des valeurs metier</li>
+<li>Valeurs par defaut definies avec DEFAULT</li>
+</ul>
+</div>
+<div id="types" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Types de donnees utilises<a href="mpd.html#types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le tableau <a href="mpd.html#tab:types">5.1</a> presente les types de donnees MySQL utilises dans ce projet.</p>
+<table>
+<caption><span id="tab:types">Tableau 5.1: </span>Types de donnees MySQL utilises</caption>
+<thead>
+<tr class="header">
+<th align="left">Type MySQL</th>
+<th align="left">Utilisation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">INT AUTO_INCREMENT</td>
+<td align="left">Identifiants auto-incrementes (cles primaires)</td>
+</tr>
+<tr class="even">
+<td align="left">VARCHAR(n)</td>
+<td align="left">Chaines de caracteres de taille limitee</td>
+</tr>
+<tr class="odd">
+<td align="left">TEXT</td>
+<td align="left">Textes longs (descriptions, commentaires)</td>
+</tr>
+<tr class="even">
+<td align="left">INT</td>
+<td align="left">Entiers (age, effectifs, durees)</td>
+</tr>
+<tr class="odd">
+<td align="left">DECIMAL(18,2)</td>
+<td align="left">Montants monetaires avec 2 decimales</td>
+</tr>
+<tr class="even">
+<td align="left">DATE</td>
+<td align="left">Dates sans heure (AAAA-MM-JJ)</td>
+</tr>
+<tr class="odd">
+<td align="left">DATETIME</td>
+<td align="left">Dates avec heure (creation compte)</td>
+</tr>
+<tr class="even">
+<td align="left">BOOLEAN</td>
+<td align="left">Valeurs booleennes (actif, couverture sociale)</td>
+</tr>
+<tr class="odd">
+<td align="left">CHAR(1)</td>
+<td align="left">Codes courts (sexe M/F)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="script-ddl-complet" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Script DDL complet<a href="mpd.html#script-ddl-complet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le script ci-dessous presente l’ensemble des instructions CREATE TABLE pour implementer la base de donnees. Les tables sont creees dans un ordre respectant les dependances referentielles.</p>
+<div id="tables-de-reference-sans-dependances" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Tables de reference (sans dependances)<a href="mpd.html#tables-de-reference-sans-dependances" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ces tables contiennent les donnees de reference du systeme et n’ont aucune dependance externe.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="mpd.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table ROLE : Definit les profils d&#39;acces au systeme</span></span>
+<span id="cb1-2"><a href="mpd.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Permet de gerer les droits des utilisateurs (admin, agent, superviseur...)</span></span>
+<span id="cb1-3"><a href="mpd.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">role</span>(</span>
+<span id="cb1-4"><a href="mpd.html#cb1-4" aria-hidden="true" tabindex="-1"></a>   id_role <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-5"><a href="mpd.html#cb1-5" aria-hidden="true" tabindex="-1"></a>   libelle_role <span class="dt">VARCHAR</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-6"><a href="mpd.html#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_role),</span>
+<span id="cb1-7"><a href="mpd.html#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(libelle_role)  <span class="co">-- Un role ne peut exister qu&#39;une seule fois</span></span>
+<span id="cb1-8"><a href="mpd.html#cb1-8" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-9"><a href="mpd.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="mpd.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table REGION : Premier niveau du decoupage territorial senegalais</span></span>
+<span id="cb1-11"><a href="mpd.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> region(</span>
+<span id="cb1-12"><a href="mpd.html#cb1-12" aria-hidden="true" tabindex="-1"></a>   id_region <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-13"><a href="mpd.html#cb1-13" aria-hidden="true" tabindex="-1"></a>   nom_region <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-14"><a href="mpd.html#cb1-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_region),</span>
+<span id="cb1-15"><a href="mpd.html#cb1-15" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(nom_region)  <span class="co">-- Chaque region a un nom unique</span></span>
+<span id="cb1-16"><a href="mpd.html#cb1-16" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-17"><a href="mpd.html#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="mpd.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table ACTIVITE_ECO : Referentiel des activites economiques</span></span>
+<span id="cb1-19"><a href="mpd.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">-- Classifie les unites informelles par secteur et type de production</span></span>
+<span id="cb1-20"><a href="mpd.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activite_eco(</span>
+<span id="cb1-21"><a href="mpd.html#cb1-21" aria-hidden="true" tabindex="-1"></a>   id_activite <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-22"><a href="mpd.html#cb1-22" aria-hidden="true" tabindex="-1"></a>   secteur <span class="dt">VARCHAR</span>(<span class="dv">30</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,           <span class="co">-- Commerce, Artisanat, Services...</span></span>
+<span id="cb1-23"><a href="mpd.html#cb1-23" aria-hidden="true" tabindex="-1"></a>   sous_secteur <span class="dt">VARCHAR</span>(<span class="dv">80</span>),               <span class="co">-- Sous-categorie optionnelle</span></span>
+<span id="cb1-24"><a href="mpd.html#cb1-24" aria-hidden="true" tabindex="-1"></a>   type_production <span class="dt">VARCHAR</span>(<span class="dv">80</span>),            <span class="co">-- Nature des biens/services produits</span></span>
+<span id="cb1-25"><a href="mpd.html#cb1-25" aria-hidden="true" tabindex="-1"></a>   equipements_utilises TEXT,              <span class="co">-- Description des equipements</span></span>
+<span id="cb1-26"><a href="mpd.html#cb1-26" aria-hidden="true" tabindex="-1"></a>   saisonnalite <span class="dt">VARCHAR</span>(<span class="dv">60</span>),               <span class="co">-- Activite saisonniere ou permanente</span></span>
+<span id="cb1-27"><a href="mpd.html#cb1-27" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_activite)</span>
+<span id="cb1-28"><a href="mpd.html#cb1-28" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-29"><a href="mpd.html#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="mpd.html#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">-- Tables de vulnerabilites : Referentiels des difficultes, risques et besoins</span></span>
+<span id="cb1-31"><a href="mpd.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> difficulte(</span>
+<span id="cb1-32"><a href="mpd.html#cb1-32" aria-hidden="true" tabindex="-1"></a>   id_diff <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-33"><a href="mpd.html#cb1-33" aria-hidden="true" tabindex="-1"></a>   libelle_diff <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-34"><a href="mpd.html#cb1-34" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_diff),</span>
+<span id="cb1-35"><a href="mpd.html#cb1-35" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(libelle_diff)</span>
+<span id="cb1-36"><a href="mpd.html#cb1-36" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-37"><a href="mpd.html#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="mpd.html#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> risque(</span>
+<span id="cb1-39"><a href="mpd.html#cb1-39" aria-hidden="true" tabindex="-1"></a>   id_risque <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-40"><a href="mpd.html#cb1-40" aria-hidden="true" tabindex="-1"></a>   libelle_risque <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-41"><a href="mpd.html#cb1-41" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_risque),</span>
+<span id="cb1-42"><a href="mpd.html#cb1-42" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(libelle_risque)</span>
+<span id="cb1-43"><a href="mpd.html#cb1-43" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-44"><a href="mpd.html#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="mpd.html#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> besoin(</span>
+<span id="cb1-46"><a href="mpd.html#cb1-46" aria-hidden="true" tabindex="-1"></a>   id_besoin <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-47"><a href="mpd.html#cb1-47" aria-hidden="true" tabindex="-1"></a>   libelle_besoin <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-48"><a href="mpd.html#cb1-48" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_besoin),</span>
+<span id="cb1-49"><a href="mpd.html#cb1-49" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(libelle_besoin)</span>
+<span id="cb1-50"><a href="mpd.html#cb1-50" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-51"><a href="mpd.html#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="mpd.html#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table PROGRAMME : Programmes publics d&#39;appui au secteur informel</span></span>
+<span id="cb1-53"><a href="mpd.html#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> programme(</span>
+<span id="cb1-54"><a href="mpd.html#cb1-54" aria-hidden="true" tabindex="-1"></a>   id_prog <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb1-55"><a href="mpd.html#cb1-55" aria-hidden="true" tabindex="-1"></a>   nom_prog <span class="dt">VARCHAR</span>(<span class="dv">160</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-56"><a href="mpd.html#cb1-56" aria-hidden="true" tabindex="-1"></a>   type_prog <span class="dt">VARCHAR</span>(<span class="dv">60</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,         <span class="co">-- Formation, Financement, Accompagnement...</span></span>
+<span id="cb1-57"><a href="mpd.html#cb1-57" aria-hidden="true" tabindex="-1"></a>   organisme <span class="dt">VARCHAR</span>(<span class="dv">120</span>),                 <span class="co">-- Organisme porteur du programme</span></span>
+<span id="cb1-58"><a href="mpd.html#cb1-58" aria-hidden="true" tabindex="-1"></a>   description TEXT,</span>
+<span id="cb1-59"><a href="mpd.html#cb1-59" aria-hidden="true" tabindex="-1"></a>   date_debut <span class="dt">DATE</span>,</span>
+<span id="cb1-60"><a href="mpd.html#cb1-60" aria-hidden="true" tabindex="-1"></a>   date_fin <span class="dt">DATE</span>,</span>
+<span id="cb1-61"><a href="mpd.html#cb1-61" aria-hidden="true" tabindex="-1"></a>   montant_financement <span class="dt">DECIMAL</span>(<span class="dv">18</span>,<span class="dv">2</span>),      <span class="co">-- Budget total alloue</span></span>
+<span id="cb1-62"><a href="mpd.html#cb1-62" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_prog)</span>
+<span id="cb1-63"><a href="mpd.html#cb1-63" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="tables-avec-dependances-simples-niveau-1" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Tables avec dependances simples (niveau 1)<a href="mpd.html#tables-avec-dependances-simples-niveau-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ces tables dependent d’une seule table parente.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="mpd.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table UTILISATEUR : Agents et administrateurs du systeme</span></span>
+<span id="cb2-2"><a href="mpd.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Liee a ROLE pour definir les droits d&#39;acces</span></span>
+<span id="cb2-3"><a href="mpd.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> utilisateur(</span>
+<span id="cb2-4"><a href="mpd.html#cb2-4" aria-hidden="true" tabindex="-1"></a>   id_user <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb2-5"><a href="mpd.html#cb2-5" aria-hidden="true" tabindex="-1"></a>   nom <span class="dt">VARCHAR</span>(<span class="dv">80</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-6"><a href="mpd.html#cb2-6" aria-hidden="true" tabindex="-1"></a>   prenom <span class="dt">VARCHAR</span>(<span class="dv">80</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-7"><a href="mpd.html#cb2-7" aria-hidden="true" tabindex="-1"></a>   email <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-8"><a href="mpd.html#cb2-8" aria-hidden="true" tabindex="-1"></a>   role_utilisateur <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,  <span class="co">-- Description textuelle du role</span></span>
+<span id="cb2-9"><a href="mpd.html#cb2-9" aria-hidden="true" tabindex="-1"></a>   telephone <span class="dt">VARCHAR</span>(<span class="dv">13</span>),</span>
+<span id="cb2-10"><a href="mpd.html#cb2-10" aria-hidden="true" tabindex="-1"></a>   date_creation DATETIME <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> NOW(),  <span class="co">-- Date auto a l&#39;insertion</span></span>
+<span id="cb2-11"><a href="mpd.html#cb2-11" aria-hidden="true" tabindex="-1"></a>   actif <span class="dt">BOOLEAN</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="kw">TRUE</span>,            <span class="co">-- Compte actif par defaut</span></span>
+<span id="cb2-12"><a href="mpd.html#cb2-12" aria-hidden="true" tabindex="-1"></a>   id_role <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-13"><a href="mpd.html#cb2-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_user),</span>
+<span id="cb2-14"><a href="mpd.html#cb2-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(email),                           <span class="co">-- Email unique pour chaque utilisateur</span></span>
+<span id="cb2-15"><a href="mpd.html#cb2-15" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_role) <span class="kw">REFERENCES</span> <span class="kw">role</span>(id_role)</span>
+<span id="cb2-16"><a href="mpd.html#cb2-16" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb2-17"><a href="mpd.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="mpd.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table DEPARTEMENT : Deuxieme niveau territorial, depend de REGION</span></span>
+<span id="cb2-19"><a href="mpd.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> departement(</span>
+<span id="cb2-20"><a href="mpd.html#cb2-20" aria-hidden="true" tabindex="-1"></a>   id_dept <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb2-21"><a href="mpd.html#cb2-21" aria-hidden="true" tabindex="-1"></a>   nom_dept <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-22"><a href="mpd.html#cb2-22" aria-hidden="true" tabindex="-1"></a>   id_region <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-23"><a href="mpd.html#cb2-23" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_dept),</span>
+<span id="cb2-24"><a href="mpd.html#cb2-24" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(nom_dept, id_region),             <span class="co">-- Nom unique par region</span></span>
+<span id="cb2-25"><a href="mpd.html#cb2-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_region) <span class="kw">REFERENCES</span> region(id_region)</span>
+<span id="cb2-26"><a href="mpd.html#cb2-26" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb2-27"><a href="mpd.html#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="mpd.html#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table SESSION_PROG : Sessions de formation/accompagnement d&#39;un programme</span></span>
+<span id="cb2-29"><a href="mpd.html#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> session_prog(</span>
+<span id="cb2-30"><a href="mpd.html#cb2-30" aria-hidden="true" tabindex="-1"></a>   id_session <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb2-31"><a href="mpd.html#cb2-31" aria-hidden="true" tabindex="-1"></a>   libelle_session <span class="dt">VARCHAR</span>(<span class="dv">160</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-32"><a href="mpd.html#cb2-32" aria-hidden="true" tabindex="-1"></a>   date_debut <span class="dt">DATE</span>,</span>
+<span id="cb2-33"><a href="mpd.html#cb2-33" aria-hidden="true" tabindex="-1"></a>   date_fin <span class="dt">DATE</span>,</span>
+<span id="cb2-34"><a href="mpd.html#cb2-34" aria-hidden="true" tabindex="-1"></a>   lieu <span class="dt">VARCHAR</span>(<span class="dv">160</span>),</span>
+<span id="cb2-35"><a href="mpd.html#cb2-35" aria-hidden="true" tabindex="-1"></a>   id_prog <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-36"><a href="mpd.html#cb2-36" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_session),</span>
+<span id="cb2-37"><a href="mpd.html#cb2-37" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_prog) <span class="kw">REFERENCES</span> programme(id_prog)</span>
+<span id="cb2-38"><a href="mpd.html#cb2-38" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="tables-avec-dependances-en-cascade-niveau-2" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Tables avec dependances en cascade (niveau 2+)<a href="mpd.html#tables-avec-dependances-en-cascade-niveau-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ces tables sont situees plus bas dans la hierarchie des dependances.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="mpd.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table COMMUNE : Troisieme niveau territorial, depend de DEPARTEMENT</span></span>
+<span id="cb3-2"><a href="mpd.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> commune(</span>
+<span id="cb3-3"><a href="mpd.html#cb3-3" aria-hidden="true" tabindex="-1"></a>   id_commune <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb3-4"><a href="mpd.html#cb3-4" aria-hidden="true" tabindex="-1"></a>   nom_commune <span class="dt">VARCHAR</span>(<span class="dv">120</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-5"><a href="mpd.html#cb3-5" aria-hidden="true" tabindex="-1"></a>   type_commune <span class="dt">VARCHAR</span>(<span class="dv">40</span>),                <span class="co">-- Urbaine, rurale, semi-urbaine</span></span>
+<span id="cb3-6"><a href="mpd.html#cb3-6" aria-hidden="true" tabindex="-1"></a>   id_dept <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-7"><a href="mpd.html#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_commune),</span>
+<span id="cb3-8"><a href="mpd.html#cb3-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(nom_commune, id_dept),            <span class="co">-- Nom unique par departement</span></span>
+<span id="cb3-9"><a href="mpd.html#cb3-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_dept) <span class="kw">REFERENCES</span> departement(id_dept)</span>
+<span id="cb3-10"><a href="mpd.html#cb3-10" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb3-11"><a href="mpd.html#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="mpd.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table SITE : Lieux d&#39;exercice des activites informelles</span></span>
+<span id="cb3-13"><a href="mpd.html#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- Marches, zones artisanales, espaces commerciaux...</span></span>
+<span id="cb3-14"><a href="mpd.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> site(</span>
+<span id="cb3-15"><a href="mpd.html#cb3-15" aria-hidden="true" tabindex="-1"></a>   id_site <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb3-16"><a href="mpd.html#cb3-16" aria-hidden="true" tabindex="-1"></a>   nom_site <span class="dt">VARCHAR</span>(<span class="dv">140</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-17"><a href="mpd.html#cb3-17" aria-hidden="true" tabindex="-1"></a>   type_site <span class="dt">VARCHAR</span>(<span class="dv">60</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,          <span class="co">-- Marche, atelier, espace commercial...</span></span>
+<span id="cb3-18"><a href="mpd.html#cb3-18" aria-hidden="true" tabindex="-1"></a>   description TEXT,</span>
+<span id="cb3-19"><a href="mpd.html#cb3-19" aria-hidden="true" tabindex="-1"></a>   id_commune <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-20"><a href="mpd.html#cb3-20" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_site),</span>
+<span id="cb3-21"><a href="mpd.html#cb3-21" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(nom_site, id_commune),            <span class="co">-- Nom unique par commune</span></span>
+<span id="cb3-22"><a href="mpd.html#cb3-22" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_commune) <span class="kw">REFERENCES</span> commune(id_commune)</span>
+<span id="cb3-23"><a href="mpd.html#cb3-23" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="tables-metier-principales" class="section level3 hasAnchor" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Tables metier principales<a href="mpd.html#tables-metier-principales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ces tables constituent le coeur fonctionnel de la base de donnees.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="mpd.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table UNITE_INFORMELLE : Entite centrale du systeme</span></span>
+<span id="cb4-2"><a href="mpd.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Represente une unite de production du secteur informel</span></span>
+<span id="cb4-3"><a href="mpd.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> unite_informelle(</span>
+<span id="cb4-4"><a href="mpd.html#cb4-4" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb4-5"><a href="mpd.html#cb4-5" aria-hidden="true" tabindex="-1"></a>   code_unite <span class="dt">VARCHAR</span>(<span class="dv">40</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,         <span class="co">-- Code unique d&#39;identification</span></span>
+<span id="cb4-6"><a href="mpd.html#cb4-6" aria-hidden="true" tabindex="-1"></a>   nom_activite <span class="dt">VARCHAR</span>(<span class="dv">160</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,      <span class="co">-- Denomination de l&#39;activite principale</span></span>
+<span id="cb4-7"><a href="mpd.html#cb4-7" aria-hidden="true" tabindex="-1"></a>   type_activite <span class="dt">VARCHAR</span>(<span class="dv">80</span>),               <span class="co">-- Production, commerce, services</span></span>
+<span id="cb4-8"><a href="mpd.html#cb4-8" aria-hidden="true" tabindex="-1"></a>   statut_juridique <span class="dt">VARCHAR</span>(<span class="dv">60</span>),            <span class="co">-- Formel, semi-formel, informel</span></span>
+<span id="cb4-9"><a href="mpd.html#cb4-9" aria-hidden="true" tabindex="-1"></a>   date_creation <span class="dt">DATE</span>,                      <span class="co">-- Date de creation de l&#39;unite</span></span>
+<span id="cb4-10"><a href="mpd.html#cb4-10" aria-hidden="true" tabindex="-1"></a>   niveau_formalisation <span class="dt">VARCHAR</span>(<span class="dv">40</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>, <span class="co">-- Degre de formalisation</span></span>
+<span id="cb4-11"><a href="mpd.html#cb4-11" aria-hidden="true" tabindex="-1"></a>   ca_estime <span class="dt">DECIMAL</span>(<span class="dv">18</span>,<span class="dv">2</span>),                 <span class="co">-- Chiffre d&#39;affaires estime annuel</span></span>
+<span id="cb4-12"><a href="mpd.html#cb4-12" aria-hidden="true" tabindex="-1"></a>   id_activite <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-13"><a href="mpd.html#cb4-13" aria-hidden="true" tabindex="-1"></a>   id_site <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-14"><a href="mpd.html#cb4-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_unite),</span>
+<span id="cb4-15"><a href="mpd.html#cb4-15" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(id_site),                         <span class="co">-- Une unite par site</span></span>
+<span id="cb4-16"><a href="mpd.html#cb4-16" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(code_unite),                      <span class="co">-- Code unique</span></span>
+<span id="cb4-17"><a href="mpd.html#cb4-17" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_activite) <span class="kw">REFERENCES</span> activite_eco(id_activite),</span>
+<span id="cb4-18"><a href="mpd.html#cb4-18" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_site) <span class="kw">REFERENCES</span> site(id_site)</span>
+<span id="cb4-19"><a href="mpd.html#cb4-19" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb4-20"><a href="mpd.html#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="mpd.html#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table TRAVAILLEUR : Personnes travaillant dans les unites informelles</span></span>
+<span id="cb4-22"><a href="mpd.html#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> travailleur(</span>
+<span id="cb4-23"><a href="mpd.html#cb4-23" aria-hidden="true" tabindex="-1"></a>   id_trav <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb4-24"><a href="mpd.html#cb4-24" aria-hidden="true" tabindex="-1"></a>   identifiant_ext <span class="dt">VARCHAR</span>(<span class="dv">60</span>),             <span class="co">-- Identifiant externe (CNI, etc.)</span></span>
+<span id="cb4-25"><a href="mpd.html#cb4-25" aria-hidden="true" tabindex="-1"></a>   sexe <span class="dt">CHAR</span>(<span class="dv">1</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,                   <span class="co">-- M ou F</span></span>
+<span id="cb4-26"><a href="mpd.html#cb4-26" aria-hidden="true" tabindex="-1"></a>   age <span class="dt">INT</span>,</span>
+<span id="cb4-27"><a href="mpd.html#cb4-27" aria-hidden="true" tabindex="-1"></a>   niveau_instruction <span class="dt">VARCHAR</span>(<span class="dv">60</span>),          <span class="co">-- Primaire, secondaire, superieur...</span></span>
+<span id="cb4-28"><a href="mpd.html#cb4-28" aria-hidden="true" tabindex="-1"></a>   role_unite <span class="dt">VARCHAR</span>(<span class="dv">40</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,         <span class="co">-- Patron, employe, apprenti...</span></span>
+<span id="cb4-29"><a href="mpd.html#cb4-29" aria-hidden="true" tabindex="-1"></a>   anciennete_mois <span class="dt">INT</span>,                     <span class="co">-- Anciennete en mois</span></span>
+<span id="cb4-30"><a href="mpd.html#cb4-30" aria-hidden="true" tabindex="-1"></a>   couverture_sociale <span class="dt">BOOLEAN</span> <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="kw">FALSE</span>, <span class="co">-- Protection sociale</span></span>
+<span id="cb4-31"><a href="mpd.html#cb4-31" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-32"><a href="mpd.html#cb4-32" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_trav),</span>
+<span id="cb4-33"><a href="mpd.html#cb4-33" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite)</span>
+<span id="cb4-34"><a href="mpd.html#cb4-34" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb4-35"><a href="mpd.html#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="mpd.html#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table SITUATION_ECO : Observations economiques periodiques</span></span>
+<span id="cb4-37"><a href="mpd.html#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">-- Permet l&#39;historisation des donnees economiques des unites</span></span>
+<span id="cb4-38"><a href="mpd.html#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> situation_eco(</span>
+<span id="cb4-39"><a href="mpd.html#cb4-39" aria-hidden="true" tabindex="-1"></a>   id_sit <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb4-40"><a href="mpd.html#cb4-40" aria-hidden="true" tabindex="-1"></a>   nb_travailleurs <span class="dt">INT</span>,                     <span class="co">-- Effectif declare</span></span>
+<span id="cb4-41"><a href="mpd.html#cb4-41" aria-hidden="true" tabindex="-1"></a>   revenu_mensuel_estime <span class="dt">DECIMAL</span>(<span class="dv">18</span>,<span class="dv">2</span>),     <span class="co">-- Revenu mensuel</span></span>
+<span id="cb4-42"><a href="mpd.html#cb4-42" aria-hidden="true" tabindex="-1"></a>   charges_principales <span class="dt">DECIMAL</span>(<span class="dv">18</span>,<span class="dv">2</span>),       <span class="co">-- Charges mensuelles</span></span>
+<span id="cb4-43"><a href="mpd.html#cb4-43" aria-hidden="true" tabindex="-1"></a>   variation_saisonniere <span class="dt">VARCHAR</span>(<span class="dv">60</span>),       <span class="co">-- Impact de la saison</span></span>
+<span id="cb4-44"><a href="mpd.html#cb4-44" aria-hidden="true" tabindex="-1"></a>   date_obs <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,                  <span class="co">-- Date de l&#39;observation</span></span>
+<span id="cb4-45"><a href="mpd.html#cb4-45" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-46"><a href="mpd.html#cb4-46" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_sit),</span>
+<span id="cb4-47"><a href="mpd.html#cb4-47" aria-hidden="true" tabindex="-1"></a>   <span class="kw">UNIQUE</span>(id_unite, date_obs),              <span class="co">-- Une observation par date et unite</span></span>
+<span id="cb4-48"><a href="mpd.html#cb4-48" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite)</span>
+<span id="cb4-49"><a href="mpd.html#cb4-49" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb4-50"><a href="mpd.html#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="mpd.html#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table DOCUMENT : Pieces justificatives et documents associes</span></span>
+<span id="cb4-52"><a href="mpd.html#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> document(</span>
+<span id="cb4-53"><a href="mpd.html#cb4-53" aria-hidden="true" tabindex="-1"></a>   id_doc <span class="dt">INT</span> AUTO_INCREMENT,</span>
+<span id="cb4-54"><a href="mpd.html#cb4-54" aria-hidden="true" tabindex="-1"></a>   type_doc <span class="dt">VARCHAR</span>(<span class="dv">60</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,           <span class="co">-- Type de document</span></span>
+<span id="cb4-55"><a href="mpd.html#cb4-55" aria-hidden="true" tabindex="-1"></a>   date_doc <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-56"><a href="mpd.html#cb4-56" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-57"><a href="mpd.html#cb4-57" aria-hidden="true" tabindex="-1"></a>   id_user <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,                    <span class="co">-- Utilisateur ayant depose le document</span></span>
+<span id="cb4-58"><a href="mpd.html#cb4-58" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_doc),</span>
+<span id="cb4-59"><a href="mpd.html#cb4-59" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite),</span>
+<span id="cb4-60"><a href="mpd.html#cb4-60" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_user) <span class="kw">REFERENCES</span> utilisateur(id_user)</span>
+<span id="cb4-61"><a href="mpd.html#cb4-61" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="tables-dassociation-1" class="section level3 hasAnchor" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Tables d’association<a href="mpd.html#tables-dassociation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ces tables materialisent les relations plusieurs-a-plusieurs du MCD.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="mpd.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table PARTICIPER : Inscription des unites aux sessions de programme</span></span>
+<span id="cb5-2"><a href="mpd.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Cle primaire composite (id_unite, id_session)</span></span>
+<span id="cb5-3"><a href="mpd.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> participer(</span>
+<span id="cb5-4"><a href="mpd.html#cb5-4" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span>,</span>
+<span id="cb5-5"><a href="mpd.html#cb5-5" aria-hidden="true" tabindex="-1"></a>   id_session <span class="dt">INT</span>,</span>
+<span id="cb5-6"><a href="mpd.html#cb5-6" aria-hidden="true" tabindex="-1"></a>   date_inscription <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb5-7"><a href="mpd.html#cb5-7" aria-hidden="true" tabindex="-1"></a>   statut <span class="dt">VARCHAR</span>(<span class="dv">40</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,             <span class="co">-- Inscrit, en cours, termine, abandonne</span></span>
+<span id="cb5-8"><a href="mpd.html#cb5-8" aria-hidden="true" tabindex="-1"></a>   resultat_obtenu <span class="dt">VARCHAR</span>(<span class="dv">160</span>),            <span class="co">-- Resultat de la participation</span></span>
+<span id="cb5-9"><a href="mpd.html#cb5-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_unite, id_session),</span>
+<span id="cb5-10"><a href="mpd.html#cb5-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite),</span>
+<span id="cb5-11"><a href="mpd.html#cb5-11" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_session) <span class="kw">REFERENCES</span> session_prog(id_session)</span>
+<span id="cb5-12"><a href="mpd.html#cb5-12" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb5-13"><a href="mpd.html#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="mpd.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table DECLARER_DIFFICULTE : Difficultes rencontrees par les unites</span></span>
+<span id="cb5-15"><a href="mpd.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> DECLARER_DIFFICULTE_(</span>
+<span id="cb5-16"><a href="mpd.html#cb5-16" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span>,</span>
+<span id="cb5-17"><a href="mpd.html#cb5-17" aria-hidden="true" tabindex="-1"></a>   id_diff <span class="dt">INT</span>,</span>
+<span id="cb5-18"><a href="mpd.html#cb5-18" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_unite, id_diff),</span>
+<span id="cb5-19"><a href="mpd.html#cb5-19" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite),</span>
+<span id="cb5-20"><a href="mpd.html#cb5-20" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_diff) <span class="kw">REFERENCES</span> difficulte(id_diff)</span>
+<span id="cb5-21"><a href="mpd.html#cb5-21" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb5-22"><a href="mpd.html#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="mpd.html#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table DECLARER_RISQUE : Risques identifies pour les unites</span></span>
+<span id="cb5-24"><a href="mpd.html#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> DECLARER_RISQUE_(</span>
+<span id="cb5-25"><a href="mpd.html#cb5-25" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span>,</span>
+<span id="cb5-26"><a href="mpd.html#cb5-26" aria-hidden="true" tabindex="-1"></a>   id_risque <span class="dt">INT</span>,</span>
+<span id="cb5-27"><a href="mpd.html#cb5-27" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_unite, id_risque),</span>
+<span id="cb5-28"><a href="mpd.html#cb5-28" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite),</span>
+<span id="cb5-29"><a href="mpd.html#cb5-29" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_risque) <span class="kw">REFERENCES</span> risque(id_risque)</span>
+<span id="cb5-30"><a href="mpd.html#cb5-30" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb5-31"><a href="mpd.html#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="mpd.html#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table EXPRIMER_BESOIN : Besoins exprimes par les unites</span></span>
+<span id="cb5-33"><a href="mpd.html#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> EXPRIMER_BESOIN_(</span>
+<span id="cb5-34"><a href="mpd.html#cb5-34" aria-hidden="true" tabindex="-1"></a>   id_unite <span class="dt">INT</span>,</span>
+<span id="cb5-35"><a href="mpd.html#cb5-35" aria-hidden="true" tabindex="-1"></a>   id_besoin <span class="dt">INT</span>,</span>
+<span id="cb5-36"><a href="mpd.html#cb5-36" aria-hidden="true" tabindex="-1"></a>   <span class="kw">PRIMARY</span> <span class="kw">KEY</span>(id_unite, id_besoin),</span>
+<span id="cb5-37"><a href="mpd.html#cb5-37" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_unite) <span class="kw">REFERENCES</span> unite_informelle(id_unite),</span>
+<span id="cb5-38"><a href="mpd.html#cb5-38" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FOREIGN</span> <span class="kw">KEY</span>(id_besoin) <span class="kw">REFERENCES</span> besoin(id_besoin)</span>
+<span id="cb5-39"><a href="mpd.html#cb5-39" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+</div>
+<div id="commentaires-sur-limplementation" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Commentaires sur l’implementation<a href="mpd.html#commentaires-sur-limplementation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="integrite-referentielle" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Integrite referentielle<a href="mpd.html#integrite-referentielle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Toutes les cles etrangeres garantissent la coherence des donnees :</p>
+<ul>
+<li><strong>CASCADE implicite</strong> : Les suppressions doivent etre gerees manuellement pour eviter les orphelins</li>
+<li><strong>Contraintes UNIQUE composites</strong> : Assurent l’unicite metier (ex: nom_dept + id_region)</li>
+</ul>
+</div>
+<div id="valeurs-par-defaut" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Valeurs par defaut<a href="mpd.html#valeurs-par-defaut" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>date_creation</code> : Initialise automatiquement avec NOW() lors de la creation d’un utilisateur</li>
+<li><code>actif</code> : TRUE par defaut pour les nouveaux comptes</li>
+<li><code>couverture_sociale</code> : FALSE par defaut (majorite des travailleurs informels)</li>
+</ul>
+</div>
+<div id="points-dattention" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Points d’attention<a href="mpd.html#points-dattention" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>Table unite_informelle</strong> : La contrainte UNIQUE(id_site) impose qu’un site ne peut heberger qu’une seule unite</li>
+<li><strong>Tables de vulnerabilites</strong> : Structure simple (id, libelle) facilitant l’ajout de nouvelles categories</li>
+<li><strong>Table situation_eco</strong> : L’unicite (id_unite, date_obs) permet l’historisation temporelle</li>
+</ol>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mld.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dictionnaire.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": false,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Rapport_BD_Secteur_Informel.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
