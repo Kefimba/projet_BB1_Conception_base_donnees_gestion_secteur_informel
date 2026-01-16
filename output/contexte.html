@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees</title>
-  <meta name="description" content="2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees" />
+  <title>Chapitre2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees</title>
+  <meta name="description" content="Chapitre2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees" />
+  <meta property="og:title" content="Chapitre2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees" />
+  <meta name="twitter:title" content="Chapitre2 Diagramme de contexte | PROJET 3 : Conception d’une base de donnees" />
   
   
   
@@ -227,13 +227,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="contexte" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> Diagramme de contexte<a href="contexte.html#contexte" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapitre2</span> Diagramme de contexte<a href="contexte.html#contexte" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Le diagramme de contexte présente le système étudié comme une boîte noire et met en évidence
 les interactions entre la plateforme de gestion du secteur informel et les acteurs externes.
 La figure <a href="contexte.html#fig:diagramme-contexte">2.1</a> illustre ces flux d’information.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagramme-contexte"></span>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c64b1e6265592b564c7a" style="width:100%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c64b1e6265592b564c7a">{"x":{"diagram":"\ndigraph contexte {\n  # Configuration generale du graphe\n  graph [\n    layout = dot,\n    rankdir = LR,\n    bgcolor = \"#ffffff\",\n    fontname = \"Helvetica\",\n    splines = ortho,\n    nodesep = 0.8,\n    ranksep = 1.5\n  ]\n  \n  # Style par defaut des noeuds\n  node [\n    fontname = \"Helvetica\",\n    fontsize = 11,\n    style = \"filled,rounded\",\n    penwidth = 2\n  ]\n  \n  # Style par defaut des aretes\n  edge [\n    fontname = \"Helvetica\",\n    fontsize = 10,\n    penwidth = 1.5,\n    arrowsize = 0.8\n  ]\n  \n  # ========== ACTEURS EXTERNES (gauche) ==========\n  subgraph cluster_acteurs {\n    label = \"ACTEURS\"\n    labeljust = \"l\"\n    fontname = \"Helvetica Bold\"\n    fontsize = 12\n    fontcolor = \"#1e3a5f\"\n    style = \"dashed\"\n    color = \"#94a3b8\"\n    bgcolor = \"#f8fafc\"\n    \n    Admin [\n      label = \"👤 Administrateur\\nnational\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Agent [\n      label = \"👤 Agent de\\nrecensement\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Superviseur [\n      label = \"👤 Superviseur\\nrégional\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Analyste [\n      label = \"👤 Analyste\\nstatistique\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Decideur [\n      label = \"👤 Décideur\\npublic\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n  }\n  \n  # ========== SYSTEME CENTRAL ==========\n  Systeme [\n    label = \"\\n🗄️ PLATEFORME BD\\nSECTEUR INFORMEL\\n\\nPostgreSQL / MySQL\\n\"\n    shape = box\n    style = \"filled,bold,rounded\"\n    fillcolor = \"#c7d2fe\"\n    color = \"#4338ca\"\n    fontsize = 14\n    fontname = \"Helvetica Bold\"\n    penwidth = 3\n    width = 2.8\n    height = 1.8\n  ]\n  \n  # ========== ENTREES (gauche du systeme) ==========\n  subgraph cluster_entrees {\n    label = \"ENTRÉES\"\n    labeljust = \"l\"\n    fontname = \"Helvetica Bold\"\n    fontsize = 12\n    fontcolor = \"#166534\"\n    style = \"dashed\"\n    color = \"#86efac\"\n    bgcolor = \"#f0fdf4\"\n    \n    Terrain [\n      label = \"📋 Données terrain\\n(recensement, enquêtes)\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n    \n    Referentiels [\n      label = \"📍 Référentiels\\nterritoriaux\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n    \n    Programmes [\n      label = \"🎯 Programmes\\nd\\\"appui publics\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n    \n    Documents [\n      label = \"📄 Documents\\njustificatifs\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n  }\n  \n  # ========== SORTIES (droite du systeme) ==========\n  subgraph cluster_sorties {\n    label = \"SORTIES\"\n    labeljust = \"r\"\n    fontname = \"Helvetica Bold\"\n    fontsize = 12\n    fontcolor = \"#9a3412\"\n    style = \"dashed\"\n    color = \"#fdba74\"\n    bgcolor = \"#fff7ed\"\n    \n    Indicateurs [\n      label = \"📊 Indicateurs\\néconomiques et sociaux\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n    \n    Listes [\n      label = \"📋 Listes\\nopérationnelles\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n    \n    Rapports [\n      label = \"📈 Rapports et\\nextractions\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n    \n    Tableaux [\n      label = \"📉 Tableaux de bord\\nsuivi programmes\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n  }\n  \n  # ========== FLUX ACTEURS -> SYSTEME ==========\n  Admin -> Systeme [label = \"Paramétrage\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Agent -> Systeme [label = \"Saisie données\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Superviseur -> Systeme [label = \"Validation\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Analyste -> Systeme [label = \"Requêtes\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Decideur -> Systeme [label = \"Consultation\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  \n  # ========== FLUX ENTREES -> SYSTEME ==========\n  Terrain -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  Referentiels -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  Programmes -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  Documents -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  \n  # ========== FLUX SYSTEME -> SORTIES ==========\n  Systeme -> Indicateurs [color = \"#ea580c\", style = \"dashed\"]\n  Systeme -> Listes [color = \"#ea580c\", style = \"dashed\"]\n  Systeme -> Rapports [color = \"#ea580c\", style = \"dashed\"]\n  Systeme -> Tableaux [color = \"#ea580c\", style = \"dashed\"]\n  \n  # ========== ALIGNEMENT ==========\n  {rank = same; Admin; Agent; Superviseur; Analyste; Decideur}\n  {rank = same; Terrain; Referentiels; Programmes; Documents}\n  {rank = same; Indicateurs; Listes; Rapports; Tableaux}\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-e3e2d3edfbb439217137" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e3e2d3edfbb439217137">{"x":{"diagram":"\ndigraph contexte {\n  # Configuration generale du graphe\n  graph [\n    layout = dot,\n    rankdir = LR,\n    bgcolor = \"#ffffff\",\n    fontname = \"Helvetica\",\n    splines = ortho,\n    nodesep = 0.8,\n    ranksep = 1.5\n  ]\n  \n  # Style par defaut des noeuds\n  node [\n    fontname = \"Helvetica\",\n    fontsize = 11,\n    style = \"filled,rounded\",\n    penwidth = 2\n  ]\n  \n  # Style par defaut des aretes\n  edge [\n    fontname = \"Helvetica\",\n    fontsize = 10,\n    penwidth = 1.5,\n    arrowsize = 0.8\n  ]\n  \n  # ========== ACTEURS EXTERNES (gauche) ==========\n  subgraph cluster_acteurs {\n    label = \"ACTEURS\"\n    labeljust = \"l\"\n    fontname = \"Helvetica Bold\"\n    fontsize = 12\n    fontcolor = \"#1e3a5f\"\n    style = \"dashed\"\n    color = \"#94a3b8\"\n    bgcolor = \"#f8fafc\"\n    \n    Admin [\n      label = \"👤 Administrateur\\nnational\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Agent [\n      label = \"👤 Agent de\\nrecensement\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Superviseur [\n      label = \"👤 Superviseur\\nrégional\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Analyste [\n      label = \"👤 Analyste\\nstatistique\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n    \n    Decideur [\n      label = \"👤 Décideur\\npublic\"\n      shape = box\n      fillcolor = \"#dbeafe\"\n      color = \"#2563eb\"\n    ]\n  }\n  \n  # ========== SYSTEME CENTRAL ==========\n  Systeme [\n    label = \"\\n🗄️ PLATEFORME BD\\nSECTEUR INFORMEL\\n\\nPostgreSQL / MySQL\\n\"\n    shape = box\n    style = \"filled,bold,rounded\"\n    fillcolor = \"#c7d2fe\"\n    color = \"#4338ca\"\n    fontsize = 14\n    fontname = \"Helvetica Bold\"\n    penwidth = 3\n    width = 2.8\n    height = 1.8\n  ]\n  \n  # ========== ENTREES (gauche du systeme) ==========\n  subgraph cluster_entrees {\n    label = \"ENTRÉES\"\n    labeljust = \"l\"\n    fontname = \"Helvetica Bold\"\n    fontsize = 12\n    fontcolor = \"#166534\"\n    style = \"dashed\"\n    color = \"#86efac\"\n    bgcolor = \"#f0fdf4\"\n    \n    Terrain [\n      label = \"📋 Données terrain\\n(recensement, enquêtes)\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n    \n    Referentiels [\n      label = \"📍 Référentiels\\nterritoriaux\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n    \n    Programmes [\n      label = \"🎯 Programmes\\nd\\\"appui publics\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n    \n    Documents [\n      label = \"📄 Documents\\njustificatifs\"\n      shape = note\n      fillcolor = \"#bbf7d0\"\n      color = \"#16a34a\"\n    ]\n  }\n  \n  # ========== SORTIES (droite du systeme) ==========\n  subgraph cluster_sorties {\n    label = \"SORTIES\"\n    labeljust = \"r\"\n    fontname = \"Helvetica Bold\"\n    fontsize = 12\n    fontcolor = \"#9a3412\"\n    style = \"dashed\"\n    color = \"#fdba74\"\n    bgcolor = \"#fff7ed\"\n    \n    Indicateurs [\n      label = \"📊 Indicateurs\\néconomiques et sociaux\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n    \n    Listes [\n      label = \"📋 Listes\\nopérationnelles\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n    \n    Rapports [\n      label = \"📈 Rapports et\\nextractions\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n    \n    Tableaux [\n      label = \"📉 Tableaux de bord\\nsuivi programmes\"\n      shape = note\n      fillcolor = \"#fed7aa\"\n      color = \"#ea580c\"\n    ]\n  }\n  \n  # ========== FLUX ACTEURS -> SYSTEME ==========\n  Admin -> Systeme [label = \"Paramétrage\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Agent -> Systeme [label = \"Saisie données\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Superviseur -> Systeme [label = \"Validation\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Analyste -> Systeme [label = \"Requêtes\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  Decideur -> Systeme [label = \"Consultation\", color = \"#2563eb\", fontcolor = \"#1e40af\"]\n  \n  # ========== FLUX ENTREES -> SYSTEME ==========\n  Terrain -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  Referentiels -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  Programmes -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  Documents -> Systeme [color = \"#16a34a\", style = \"dashed\"]\n  \n  # ========== FLUX SYSTEME -> SORTIES ==========\n  Systeme -> Indicateurs [color = \"#ea580c\", style = \"dashed\"]\n  Systeme -> Listes [color = \"#ea580c\", style = \"dashed\"]\n  Systeme -> Rapports [color = \"#ea580c\", style = \"dashed\"]\n  Systeme -> Tableaux [color = \"#ea580c\", style = \"dashed\"]\n  \n  # ========== ALIGNEMENT ==========\n  {rank = same; Admin; Agent; Superviseur; Analyste; Decideur}\n  {rank = same; Terrain; Referentiels; Programmes; Documents}\n  {rank = same; Indicateurs; Listes; Rapports; Tableaux}\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 2.1: Diagramme de contexte de la plateforme BD Secteur Informel
 </p>
@@ -290,10 +290,7 @@ gitbook.start({
     "family": "sans",
     "size": 2
   },
-  "edit": {
-    "link": null,
-    "text": null
-  },
+  "edit": null,
   "history": {
     "link": null,
     "text": null
@@ -302,13 +299,17 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["Rapport_BD_Secteur_Informel.pdf"],
+  "download": null,
   "search": {
     "engine": "fuse",
     "options": null
   },
   "toc": {
-    "collapse": "section"
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "fixed"
   }
 });
 });

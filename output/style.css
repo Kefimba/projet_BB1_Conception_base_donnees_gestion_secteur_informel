@@ -58,10 +58,14 @@ a:hover{
 .book .book-summary{
   background: var(--blue-light);
   border-right: 1px solid var(--blue-border);
+  position: fixed !important;
+  overflow-y: auto !important;
 }
+
 .book .book-summary a{
   color: var(--blue);
 }
+
 .book .book-summary ul.summary li a:hover{
   background-color: var(--blue-border);
   color: var(--blue-dark);
@@ -70,11 +74,19 @@ a:hover{
   padding-left: 10px;
   transition: background-color .25s, color .25s;
 }
+
 .book .book-summary ul.summary li.active > a{
-  background-color: var(--blue);
-  color: #fff;
-  font-weight: 700;
-  border-radius: 4px;
+  background-color: var(--blue) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  border-left: 4px solid var(--blue-dark) !important;
+  padding-left: 12px !important;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
 /* ===== Barre supérieure ===== */
