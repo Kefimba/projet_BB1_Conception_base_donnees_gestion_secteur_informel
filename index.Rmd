@@ -207,6 +207,9 @@ Document généré via R Bookdown .
 
 # Introduction {-}
 
+<!-- Load custom TOC highlight script -->
+<script src="js/toc-highlight.js"></script>
+
 Ce rapport présente la conception complète d'une base de données dédiée à la **gestion, au suivi et à l'analyse du secteur informel au Sénégal**.
 Il s'inscrit dans une logique de production d'indicateurs fiables, territorialisés et exploitables pour l'aide à la décision publique.
 
@@ -1497,14 +1500,6 @@ La démarche suit les étapes classiques de la méthode Merise :
 - Modélisation physique (MPD)
 - Génération des scripts SQL et documentation
 
-# À retenir {.infobox}
-- Utilisez toujours des clés primaires et étrangères explicites.
-- Documentez chaque table et chaque champ.
-- Privilégiez les contraintes d’intégrité pour garantir la qualité des données.
-
-# Bonnes pratiques {.tipbox}
-- Utilisez des index sur les colonnes de jointure pour accélérer les requêtes.
-- Séparez les données de référence des données métier.
 
 # Limites et perspectives {-}
 - Automatisation possible de la génération des scripts SQL à partir du MCD.
